@@ -35,16 +35,17 @@ public class _02_FindTheHiddenButton implements ActionListener {
 		// 4. Initialize the array of JButtons to be the size of the int created in step
 		// 3
 		buttons = new JButton[number];
+
 		// 5. Make a for loop to iterate through the JButton array
 		for (int i = 0; i < buttons.length; i++) {
 			buttons[i] = new JButton();
-			buttons[i].addActionListener(null);
-			JPanel p = new JPanel();
-			p.add(buttons[i]);
-			window.add(p);
-			setExtendedState(window.MAXIMIZED_BOTH);
-			window.setVisible(true);
+			buttons[i].addActionListener(this);
+			panel.add(buttons[i]);
 		}
+		window.add(panel);
+		window.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		window.setVisible(true);
+
 		// 6. initialize each JButton in the array
 		// 7. add the ActionListener to each JButton
 		// 8. add each JButton to the panel
@@ -62,15 +63,16 @@ public class _02_FindTheHiddenButton implements ActionListener {
 		Random rand = new Random();
 		hiddenButton = rand.nextInt(number - 1);
 		// 14. Set the text of the JButton located at hiddenButton to read "ME"
-
+		buttons[hiddenButton].setText("ME");
 		// 15. Use Thread.sleep(100); to pause the program.
-
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		// 16. Set the text of the JButton located at hiddenButton to be blank.
-
-	}
-
-	private void setExtendedState(int maximizedBoth) {
-		// TODO Auto-generated method stub
+		buttons[hiddenButton].setText(null);
 
 	}
 
@@ -79,7 +81,13 @@ public class _02_FindTheHiddenButton implements ActionListener {
 		JButton buttonClicked = (JButton) e.getSource();
 
 		// 17. if the hiddenButton is clicked, tell the user that they win.
-
+		if (buttons[hiddenButton] == buttonClicked) {
+			JOptionPane.showMessageDialog(null, "You Win");
+			// System.out.println("click");
+		} else {
+			JOptionPane.showMessageDialog(null, "Try Again");
+			// System.out.println("click");
+		}
 		// 18. else tell them to try again
 	}
 }
