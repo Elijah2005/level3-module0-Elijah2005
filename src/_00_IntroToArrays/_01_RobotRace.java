@@ -12,7 +12,7 @@ public class _01_RobotRace {
 	public static void main(String[] args) {
 
 		// 2. create an array of 5 robots.
-		Robot[] bot = new Robot[6];
+		Robot[] bot = new Robot[5];
 		// 3. use a for loop to initialize the robots.
 		for (int i = 0; i < bot.length; i++) {
 			bot[i] = new Robot();
