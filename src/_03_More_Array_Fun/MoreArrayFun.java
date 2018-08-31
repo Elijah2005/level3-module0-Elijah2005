@@ -14,13 +14,15 @@ public class MoreArrayFun {
 		// 3. Write a method that takes an array of Strings and prints all the Strings
 		// in the array
 		// in reverse order.
-		for (int i = 0; i < letters.length; i--) {
-			System.out.println(letters[i]);
+		// for (int j = letters.length - 1; j >= 0; j--) {
+		// System.out.println(letters[j]);
+		// }
 
-		}
 		// 4. Write a method that takes an array of Strings and prints every other
 		// String in the array.
-
+		for (int i = 0; i < letters.length; i += 2) {
+			System.out.println(letters[i]);
+		}
 		// 5. Write a method that takes an array of Strings and prints all the Strings
 		// in the array
 		// in a completely random order. Almost every run of the program should result
